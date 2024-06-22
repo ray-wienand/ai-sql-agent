@@ -1,0 +1,51 @@
+NB: Open source vs paid
+  - What to include in open source version
+  - What to exclude from open source version
+    - Auto create assistants
+1.) Possible Integrations
+  - CoARE video: https://www.youtube.com/watch?v=2eJ2CZ5SKhs
+  - rich to display results in a clear format  
+  - PhiData. Video: https://www.youtube.com/watch?v=fLGj63fiYfM
+    - creating data assistants
+    - saving data
+  - Pandas AI. Uses natural language to answer questions
+    - Video: https://www.youtube.com/watch?v=p53YfWZJt14
+    - maybe use this for open source version
+2.) Data queries
+  - Create db schema to be used in a tool somewhere
+  - Chunking to speed data queries up. Video: https://www.youtube.com/watch?v=pIGRwMjhMaQ
+    - Maybe don't use in open source version
+  - https://github.com/eirkostop/SQL-Northwind-exercises
+  - https://github.com/Musili-Adebayo/Northwind-Database
+1.) Data Security
+  - Safety for sensitive Data
+    - Maybe Redis vector DB for local storage?
+  - How to host DB if hosting online with Streamlit, etc
+2.) Dashboard
+  - Create a dashboard with Streamlit
+  - Create a dashboard with Shinylive
+  - Create a dashboard with Dash
+  - Create a dashboard with Dashlite
+  - Give the user examples of queries
+3.) Reports
+  - Create a report with Streamlit
+  - Create a report with Shinylive
+  - Create a report with Dash
+4.) Graphs
+  - Create a graph with Streamlit
+  - Create a graph with Shinylive
+  - Create a graph with Dash
+5.) User login
+  - Create a user login with Streamlit
+  - Create a user login with Shinylive
+  - Create a user login with Dash
+6.) User registration
+  - Create a user registration with Streamlit
+  - Create a user registration with Shinylive
+  - Create a user registration with Dash
+7.) Sidebar
+  - Create a sidebar with Streamlit
+  - Create a sidebar with Shinylive
+  - Create a sidebar with Dash
+8.) Clear inputs
+9.) Save chats
