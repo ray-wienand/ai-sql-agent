@@ -4,3 +4,8 @@ pandas
 python-dotenv
 seaborn
 streamlit
+langchain
+groq
+langchain-groq
+langchain_community
+pandas

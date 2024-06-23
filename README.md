@@ -29,7 +29,7 @@ An LLM-powered Q&A agent that understands plain English questions, converts them
 # Learn Python and SQL
 - add steps
 
-# Finetune Llama3
+# Finetune Llama3 (OPTIONAL)
 __NOTE! The Llama3 used was NOT fine tuned___
 - __Reference video:__ https://www.youtube.com/watch?v=pK8u4QfdLx0&list=PLZi_z2W1127yNRvnVNYSLnW_TqotsO8Xp&index=1&t=143s
 - Why?
