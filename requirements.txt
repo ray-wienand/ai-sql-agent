@@ -7,5 +7,8 @@ streamlit
 langchain
 groq
 langchain-groq
-langchain_community
-pandas
+langchain_community # Used for Olama integration. Do I need this???
+langchain_experimental
+pandas 
+pandasai
+tabulate # Might not use
