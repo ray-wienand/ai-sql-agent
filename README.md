@@ -64,9 +64,10 @@ __Required Libraries__
  -  -->
 
  __Running The App__
- 
+
+This should run everything.
 ```shell
-python sql_chain.py
+python3 src/sql_chain.py 
 ```
 
 ## Hints/Recommendations
