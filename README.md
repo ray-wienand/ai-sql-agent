@@ -19,16 +19,16 @@ An LLM-powered Q&A agent that understands plain English questions, converts them
 - Llama3
 - Langchain
 
-## Setup Instructions
-
+<!-- ## Setup Instructions -->
+<!-- 
 # REMEMBER TO COMPLETE THE INSTRUCTIONS BELOW!
 - add how to use docker
 - add how to upload data
-- add test_sqlite.py to test db connection
+- add test_sqlite.py to test db connection -->
 
-# Learn Python and SQL
-- add steps
-
+<!-- # Learn Python and SQL
+- add steps -->
+<!-- 
 # Finetune Llama3 (OPTIONAL)
 __NOTE! The Llama3 used was NOT fine tuned___
 - __Reference video:__ https://www.youtube.com/watch?v=pK8u4QfdLx0&list=PLZi_z2W1127yNRvnVNYSLnW_TqotsO8Xp&index=1&t=143s
@@ -44,7 +44,7 @@ __NOTE! The Llama3 used was NOT fine tuned___
   - __Links:__
     - __David Ondrej Colab:__ https://colab.research.google.com/drive/1efOx_rwZeF3i0YsirhM1xhYLtGNX6Fv3?usp=sharing
     - __unsloth repo:__ https://github.com/unslothai/unsloth?tab=readme-ov-file
-    - __Dataset Example:__ https://huggingface.co/datasets/yahma/alpaca-cleaned
+    - __Dataset Example:__ https://huggingface.co/datasets/yahma/alpaca-cleaned -->
 
 
 __GROQ__
@@ -59,8 +59,15 @@ __Setup SQLite__
 - Populate Your SQLite Database with Northwind Data.
 - Verify the data by running a simple query: 'SELECT name FROM sqlite_master WHERE type='table';
 
+<!-- 
 __Required Libraries__
- - 
+ -  -->
+
+ __Running The App__
+ 
+```shell
+python sql_chain.py
+```
 
 ## Hints/Recommendations
 
