@@ -8,6 +8,8 @@ Welcome to ai-sql-agent. A SQL AI agent that can query private structured data (
 - GrogCloud
 - Llama3
 - Langchain
+- Streamlit
+  
 
 <!-- ## Setup Instructions -->
 <!-- 
@@ -55,7 +57,12 @@ __Required Libraries__
 
  __Running The App__
 
-This should run everything.
+To run the app in the terminal without a GUI.
 ```shell
-python3 src/sql_chain.py 
+python3 AiSqlAgent/sql_chain.py 
+```
+
+To run the app in the terminal with a GUI
+```shell
+streamlit run AiSqlAgent/sql_chain.py 
 ```
