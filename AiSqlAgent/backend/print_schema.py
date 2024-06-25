@@ -29,5 +29,5 @@ def load_db_schema(schema_file):
         print(f"Error: IOError occurred while reading '{schema_file}': {e}")
 
 if __name__ == "__main__":
-    schema_file = "src/schemas/northwind_schema.pkl"
+    schema_file = "../schemas/northwind_schema.pkl"
     load_db_schema(schema_file)

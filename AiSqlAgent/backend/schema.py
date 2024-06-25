@@ -5,7 +5,7 @@ import sqlite3
 import pickle
 
 # Create folder if not exist
-os.makedirs("src/schemas", exist_ok=True)
+os.makedirs("../schemas", exist_ok=True)
 
 def extract_db_schema(db_path):
 # def extract_db_schema(db_path, schema_file):
@@ -33,7 +33,7 @@ def extract_db_schema(db_path):
         schema_definitions = [schema[0] for schema in cursor.fetchall()]
         print(f"Successfully extracted the schema from the {db_name} database. Saving the schema file...")
 
-        output_directory = f"src/schemas/{db_name}_schema.pkl"
+        output_directory = f"../schemas/{db_name}_schema.pkl"
 
         # Save the schema definitions to a file using pickle
         with open(output_directory, "wb") as f:
@@ -50,5 +50,5 @@ def extract_db_schema(db_path):
             conn.close()
 
 if __name__ == "__main__":
-    db_path = "././data/northwind.db"
+    db_path = "../data/northwind.db"
     extract_db_schema(db_path)

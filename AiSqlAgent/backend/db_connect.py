@@ -28,6 +28,6 @@ if __name__ == "__main__":
     The eastwind.db does not exist. 
     It is only included to test error handling.
     """
-    # db_path = "././data/eastwind.db" 
-    db_path = "././data/northwind.db"
+    # db_path = "..//data/eastwind.db" 
+    db_path = "../data/northwind.db"
     db_connect(db_path)
