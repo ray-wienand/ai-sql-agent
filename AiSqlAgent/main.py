@@ -78,16 +78,16 @@ if st.session_state.clicked[1]:
 
     user_csv = st.file_uploader("Upload your file here", type="csv")  
 
-    # if user_csv is not None:
-    #     # Ensure pointer is at the start of the file
-    #     user_csv.seek(0)
-    #     df = pd.read_csv(user_csv, low_memory=False)
+    if user_csv is not None:
+        # Ensure pointer is at the start of the file
+        user_csv.seek(0)
+        df = pd.read_csv(user_csv, low_memory=False)
         
-    #     # Create the pandas agent after df is defined
-    #     pandas_agent = create_pandas_dataframe_agent(llm, df, allow_dangerous_code=True, verbose=True)
-    #     question = 'What is the meaning of the columns'
-    #     columns_meaning = pandas_agent.run(question)
-    #     st.write(columns_meaning)
+        # Create the pandas agent after df is defined
+        pandas_agent = create_pandas_dataframe_agent(llm, df, allow_dangerous_code=True, verbose=True)
+        question = 'What is the meaning of the columns'
+        columns_meaning = pandas_agent.run(question)
+        st.write(columns_meaning)
 
 
 # NOTE! Initiated a single call to groq as to NOT add this to the memory chain
@@ -107,12 +107,12 @@ with st.sidebar:
         st.write(chat_completion.choices[0].message.content)
 
 
-my_query = """
-Give me the name of the top 100 customers with highest purchase frequency 
-#     but with under average AOV. 
+# my_query = """
+# Give me the name of the top 100 customers with highest purchase frequency 
+# #     but with under average AOV. 
 
-#     Include frequency and aov.
-"""
+# #     Include frequency and aov.
+# """
 
-result = execute_queries_with_retries(my_query)
-print(result)
+# result = execute_queries_with_retries(my_query)
+# print(result)
