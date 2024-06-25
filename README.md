@@ -2,7 +2,7 @@
 ---
 Welcome to ai-sql-agent. A SQL AI agent that can query private structured data (SQL). 
 
-__NOTE!__ The structure of this app is in the progress of being updated. This is for practical reasons to have the app structured in a better and more professional way.
+## NOTE: The structure of this app is in the progress of being updated. This is for practical reasons to have the app structured in a better and more professional way.
 
 ### Tech Stack
 - GrogCloud

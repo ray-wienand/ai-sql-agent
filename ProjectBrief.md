@@ -4,7 +4,7 @@ Create an LLM system that can query private structured data (SQL database). Crea
 
 An LLM-powered Q&A agent that understands plain English questions, converts them into SQL queries, retrieves the data, and presents the results in plain English. Build a command-line agent where users can type in questions and get answers from an SQL database.
 
-![alt text](image.png)
+![alt text](project-brief.png)
 
 ## High-level
 - Convert question to DSL query: Model converts user input to a SQL query.
