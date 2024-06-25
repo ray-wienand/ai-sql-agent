@@ -117,6 +117,30 @@ with st.sidebar:
         )
         st.write(chat_completion.choices[0].message.content)
 
+# user_question = st.text_input("What variables are you interested in?")
+
+# def function_agent():
+#     st.write("**Data Overview**")
+#     st.write("The first rows of your dataset look like this:")
+#     st.write(response.head())
+#     st.write("**Data Cleaning**")
+#     columns_df = response.run("What are the meaning of the columns?")
+#     st.write(columns_df)
+#     missing_values = response.run("How many missing values does this dataframe have? Start the answer with 'There are'")
+#     st.write(missing_values)
+#     duplicates = response.run("Are there any duplicate products and if so where?")
+#     st.write(duplicates)
+#     st.write("**Data Summarization**")
+#     st.write(response.describe())
+#     correlation_analysis = response.run("Calculate correlations between numerical variables to identify potential relationships.")
+#     st.write(correlation_analysis)
+#     outliers = response.run("Identify outliers in the data that may be erroneous or that may have a significant impact on the analysis.")
+#     st.write(outliers)
+#     new_features = response.run("What new features would be interesting to create?.")
+#     st.write(new_features)
+#     return
+
+# function_agent()
 
 # my_query = """
 # Give me the name of the top 100 customers with highest purchase frequency 
