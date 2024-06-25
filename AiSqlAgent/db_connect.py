@@ -29,5 +29,5 @@ if __name__ == "__main__":
     It is only included to test error handling.
     """
     # db_path = "..//data/eastwind.db" 
-    db_path = "../data/northwind.db"
+    db_path = "./data/northwind.db"
     db_connect(db_path)

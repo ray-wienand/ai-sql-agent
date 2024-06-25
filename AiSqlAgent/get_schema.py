@@ -17,6 +17,6 @@ def get_schema(schema_file):
 
 
 if __name__ == '__main__':
-  schema_file = '../schemas/northwind_schema.pkl'
+  schema_file = './schemas/northwind_schema.pkl'
   schema = get_schema(schema_file)
   

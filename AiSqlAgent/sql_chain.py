@@ -50,9 +50,9 @@ prompt = ChatPromptTemplate.from_template(template)
 
 hist = ChatMessageHistory()
 
-db_path = "././data/northwind.db"
+db_path = "./data/northwind.db"
 
-schema_file = "src/schemas/northwind_schema.pkl"
+schema_file = "./schemas/northwind_schema.pkl"
 
 def ensure_schema(schema_file, db_path):
     # Try to get the schema
@@ -124,15 +124,15 @@ def execute_queries_with_retries(my_query, max_attempts=5):
                 print("Reached maximum attempt limit. Stopping retries.")
                 return None  # Return None if all retries fail
 
-if __name__ == "__main__":
-    my_query = """
-    Give me the name of the top 100 customers with highest purchase frequency 
-    but with under average AOV. 
+# if __name__ == "__main__":
+#     my_query = """
+#     Give me the name of the top 100 customers with highest purchase frequency 
+#     but with under average AOV. 
 
-    Include frequency and aov.
-    """
-    result = execute_queries_with_retries(my_query)
-    if result is not None:
-        print(f"Query Result:\n{result}")
-    else:
-        print("Failed to execute query after multiple attempts.")
+#     Include frequency and aov.
+#     """
+#     result = execute_queries_with_retries(my_query)
+#     if result is not None:
+#         print(f"Query Result:\n{result}")
+#     else:
+#         print("Failed to execute query after multiple attempts.")
