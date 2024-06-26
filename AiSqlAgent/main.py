@@ -43,24 +43,48 @@ chain = prompt | llm
 conversational_memory_length = 100
 memory = ConversationBufferWindowMemory(k=conversational_memory_length, memory_key="chat_history", return_messages=True)
 
-
-# Main
+# Title
 st.title('An AI Assistant for Data Analysis 🤖')
+
+# Welcoming message
 st.write('Hello, I am your AI assistant and I am here to help you with your data analysis tasks.')
 
+# Explanation sidebar
 with st.sidebar:
-    st.write('*Your Data Analysis Adventure Begins with your data.*')
+    st.write('*Your Data Analysis Adventure Begins With Your Data.*')
 
     st.caption('''**You may already know that every exciting data project starts with the data.
                That's why I would love for you to upload your CSV file.**''')
     st.caption('''**Once we have your data in hand, we'll dive into understanding it. Then we'll work together to shape your business challenge into a data analysis framework.
-              I'll introduce you to the coolest machine learning models, and we'll use them to tackle your problem.**''')   
+              I'll introduce you to the coolest machine learning models, and we'll use them to tackle your problem.**''')
     st.caption('''**Sounds fun right?**''')
 
     st.divider()
 
     st.caption("<p style = 'text-align: center'> Developed by Ray Wienand </p>", unsafe_allow_html=True)
 
+ 
+# NOTE! Initiated a single call to groq as to NOT add this to the memory chain
+# Function sidebar
+# @st.cache_data # Looks like the cache is slowing this down
+def steps_da():
+    chat_completion = client.chat.completions.create(
+                messages=[
+                    {
+                        "role": "user",
+                        "content": "What are the steps of Data Analysis?",
+                    }
+                ],
+                model="llama3-8b-8192",
+                temperature=0
+            )
+    return chat_completion
+
+chat_completion = steps_da()
+
+with st.sidebar:
+        with st.expander("What are the steps of Data Analysis?"):         
+            st.write(chat_completion.choices[0].message.content)
 
 # Initialise a session state variable
 if 'clicked' not in st.session_state:
@@ -68,23 +92,21 @@ if 'clicked' not in st.session_state:
 
 # Function to update the value in session state
 def clicked(button):
-    st.session_state.clicked[button] = True
+    st.session_state.clicked[button] = True          
 
-# Upload CSV file for analysis
+# Button
 st.button("Let's get started", on_click=clicked, args=[1])
-if st.session_state.clicked[1]:    
-    st.header('Exploratory Data Analysis')
-    st.subheader('Solution')
+if st.session_state.clicked[1]: 
     
     my_query = """
-    Give me the name of the top 100 customers with highest purchase frequency 
+    Give me the name of the top 100 customers with the highest purchase frequency, 
     but with under average AOV. 
 
-    Include frequency and aov. Also include the products they bought
+    Include frequency and aov. Also include the products they bought.
     """
+    st.write(my_query)
 
     response = execute_queries_with_retries(my_query)
-    # print(result)
     st.write(response)
 
     # user_csv = st.file_uploader("Upload your file here", type="csv")  
@@ -100,54 +122,44 @@ if st.session_state.clicked[1]:
     #     columns_meaning = pandas_agent.run(question)
     #     st.write(columns_meaning)
 
+    # Functions of the main script
+    @st.cache_data
+    def function_agent(response):
+        # st.write("**Data Overview**")
+        # st.write("The database consists of the following tables:")
+        # st.write(response.head())
+        # st.write("**Data Cleaning**")
+        # columns_df = response("What are the meaning of the tables?")
+        # st.write(columns_df)
+        # missing_values = response("How many missing sales values does the database have? Start the answer with 'There are'")
+        # st.write(missing_values)
+        duplicates_query = """
+        Are there any duplicate products, and if so where?
+        """
+        st.write(duplicates_query)
+        duplicates = execute_queries_with_retries(duplicates_query)
+        st.write(duplicates)
+        client_query = """
+        Give me an alphabetical list of all clients
+        """
+        st.write(client_query)
+        client_list = execute_queries_with_retries(client_query)
+        st.write(client_list)
+        # st.write("**Data Summarization**")
+        # st.write(response.describe())
+        # correlation_analysis = response("Calculate correlations between numerical variables to identify potential relationships.")
+        # st.write(correlation_analysis)
+        # outliers = response("Identify outliers in the data that may be erroneous or that may have a significant impact on the analysis.")
+        # st.write(outliers)
+        # new_features = response("What new features would be interesting to create?.")
+        # st.write(new_features)
 
-# NOTE! Initiated a single call to groq as to NOT add this to the memory chain
-with st.sidebar:
-    with st.expander('What are the steps of Data Analysis?'):        
-        # LLM provided steps        
-        chat_completion = client.chat.completions.create(
-            messages=[
-                {
-                    "role": "user",
-                    "content": "What are the steps of Data Analysis?",
-                }
-            ],
-            model="llama3-8b-8192",
-            temperature=0
-        )
-        st.write(chat_completion.choices[0].message.content)
+        return function_agent
 
-# user_question = st.text_input("What variables are you interested in?")
+    # Main
+    st.header("Exploratory Data Analysis")
+    st.subheader("Response to questions")
 
-# def function_agent():
-#     st.write("**Data Overview**")
-#     st.write("The first rows of your dataset look like this:")
-#     st.write(response.head())
-#     st.write("**Data Cleaning**")
-#     columns_df = response.run("What are the meaning of the columns?")
-#     st.write(columns_df)
-#     missing_values = response.run("How many missing values does this dataframe have? Start the answer with 'There are'")
-#     st.write(missing_values)
-#     duplicates = response.run("Are there any duplicate products and if so where?")
-#     st.write(duplicates)
-#     st.write("**Data Summarization**")
-#     st.write(response.describe())
-#     correlation_analysis = response.run("Calculate correlations between numerical variables to identify potential relationships.")
-#     st.write(correlation_analysis)
-#     outliers = response.run("Identify outliers in the data that may be erroneous or that may have a significant impact on the analysis.")
-#     st.write(outliers)
-#     new_features = response.run("What new features would be interesting to create?.")
-#     st.write(new_features)
-#     return
+    function_agent(response)
 
-# function_agent()
-
-# my_query = """
-# Give me the name of the top 100 customers with highest purchase frequency 
-# #     but with under average AOV. 
-
-# #     Include frequency and aov.
-# """
-
-# result = execute_queries_with_retries(my_query)
-# print(result)
+    user_question = st.text_input("What would you like to know?")
