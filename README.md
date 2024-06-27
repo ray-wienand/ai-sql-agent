@@ -61,8 +61,8 @@ To run the app in the terminal without a GUI.
 ```shell
 python3 AiSqlAgent/sql_chain.py 
 ```
-
+<!-- 
 To run the app in the terminal with a GUI
 ```shell
 streamlit run AiSqlAgent/sql_chain.py 
-```
+``` -->
